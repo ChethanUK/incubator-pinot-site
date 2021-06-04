@@ -26,6 +26,15 @@ module.exports = {
   projectName: 'pinot',
   onBrokenLinks: 'ignore',
   themeConfig: {
+    metadatas: [
+      {name: 'description', content: 'Apache Pinot'},
+      {name: 'description', content: 'Real-time Analytics'},
+      {name: 'description', content: 'User-facing Analytics'},
+      {name: 'description', content: 'user facing analytics'},
+      {name: 'description', content: 'Olap'},
+      {name: 'description', content: 'Consumer-facing facing analytics'},
+      {name: 'description', content: 'Fast Analytics'}
+    ],
     navbar: {
       hideOnScroll: true,
       logo: {
@@ -35,6 +44,7 @@ module.exports = {
       items: [
         {to: 'https://docs.pinot.apache.org/', label: 'Docs', position: 'right'},
         {to: '/download', label: 'Download', position: 'right'},
+        // {to: '/blog', label: 'Blog', position: 'right'},
         {to: 'https://docs.pinot.apache.org/community-1/blogs', label: 'Blog', position: 'right'},
         {
           href: 'https://github.com/apache/incubator-pinot',
@@ -188,15 +198,15 @@ module.exports = {
         src: 'img/logo.svg',
         href: 'https://pinot.apache.org/',
       },
-      copyright: `Disclaimer: Apache Pinot is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.<br><br>Copyright © ${new Date().getFullYear()} Apache Pinot, Pinot, Apache, the Apache feather logo, and the Apache Pinot project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.`,
+      copyright: `Disclaimer: Apache Pinot is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.<br><br>Copyright © ${new Date().getFullYear()} The Apache Software Foundation.<br>Apache Pinot, Pinot, Apache, the Apache feather logo, and the Apache Pinot project logo are registered trademarks of The Apache Software Foundation.`,
     },
     googleAnalytics: {
       trackingID: 'UA-157446650-1',
     },
     algolia: {
-      apiKey: 'f3cde09979e469ad62eaea4e115c21ea',
+      apiKey: 'ef0051ce1fd0a5d07af57bffdbb46f87',
       indexName: 'apache_pinot',
-      algoliaOptions: {}, // Optional, if provided by Algolia
+      // algoliaOptions: {}, // Optional, if provided by Algolia
     },
   },
   plugins: [
@@ -214,7 +224,6 @@ module.exports = {
   presets: [
     [
       '@docusaurus/preset-classic',
-      // '@docusaurus/preset-bootstrap', //TODO
       {
         docs: {
           editUrl: 'https://github.com/apache/incubator-pinot/edit/master/website/',
@@ -223,6 +232,34 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        blog: {
+        path: 'blog',
+        editUrl: 'https://github.com/apache/incubator-pinot-site/edit/dev/website/',
+        blogTitle: 'Blog - Apache Pinot: User-Face Analytics',
+        blogSidebarCount: 10,
+        blogSidebarTitle: 'All our posts',
+        /**
+         * URL route for the blog section of your site.
+         * *DO NOT* include a trailing slash.
+         */
+        routeBasePath: 'blog',
+        include: ['*.md', '*.mdx'],
+        postsPerPage: 10,
+        /**
+         * Theme components used by the blog pages.
+         */
+        blogListComponent: '@theme/BlogListPage',
+        blogPostComponent: '@theme/BlogPostPage',
+        blogTagsListComponent: '@theme/BlogTagsListPage',
+        blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          // remarkPlugins: [variable],
+          feedOptions: {
+            type: "all",
+            title: 'Apache Pinot: User-Face Analytics',
+            // copyright: customFields.copyright,
+          },
+          showReadingTime: true,
         },
       },
     ],

@@ -18,7 +18,8 @@ import Tabs from "@theme/Tabs";
 
 import classnames from "classnames";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import PinotOverview from '@site/static/img/pinot-overview.svg';
+import useThemeContext from "@theme/hooks/useThemeContext";
+import PinotOverview from '@site/static/img/pinot-overview-user.svg';
 import PinotQuery from '@site/static/img/ingest-query.svg';
 
 import styles from "./index.module.css";
@@ -166,6 +167,43 @@ function Feature({ icon, title, description }) {
     );
 }
 
+function UserFacingAnalytics() {
+    return (
+        <section className="topologies">
+            <div className="container">
+                <AnchoredH2 id="ingest-query">
+                    User-Facing Analytics
+                </AnchoredH2>
+                <p align="center">
+                    <h3 className={styles.installSubTitle}>Building Latency Sensitive User Facing Analytics via Apache Pinot</h3>
+                    <div>
+                        <iframe className={styles.youtubePlayer}
+                            title="Building Latency Sensitive User Facing Analytics via Apache Pinot"
+                            src="https://www.youtube.com/embed/JV0WxBwJqKE">
+                        </iframe>
+                    </div>
+
+                    <h3 className={styles.installSubTitle}>Using Apache Kafka and Apache Pinot for User-Facing Analytics</h3>
+                    <div>
+                        <iframe className={styles.youtubePlayer}
+                            title="Using Apache Kafka and Apache Pinot for User-Facing, Real-Time Analytics"
+                            src="https://www.youtube.com/embed/L5b_OJVOJKo">
+                        </iframe>
+                    </div>
+                    <div className="hero--buttons">
+                        <Link
+                            to="https://docs.pinot.apache.org/community-1/videos"
+                            className="button button--primary button--highlight"
+                        >
+                            More Videos
+                        </Link>
+                    </div>
+                </p>
+            </div>
+        </section>
+    );
+}
+
 function WhoUses() {
     return (
         <section className="topologies">
@@ -192,14 +230,14 @@ function WhoUses() {
                     <Link class="grid-item" to="https://www.factual.com">
                         <SVG src="/img/companies/factual.svg" />
                     </Link>
-                    <Link class="grid-item" to="https://www.weibo.com">
-                        <SVG src="/img/companies/sina-weibo.svg" />
+                    <Link to="https://www.weibo.com">
+                        <CompanyLogo srcLight="/img/companies/weibo_light.svg" srcDark="/img/companies/weibo_dark.svg" />
                     </Link>
-                    <Link class="grid-item" to="https://eero.com/">
-                        <SVG src="/img/companies/eero.svg" />
+                    <Link to="https://eero.com/">
+                        <CompanyLogo srcLight="/img/companies/eero_light.svg" srcDark="/img/companies/eero_dark.svg" />
                     </Link>
-                    <Link class="grid-item" to="https://www.confluera.com/">
-                        <SVG src="/img/companies/confluera.svg" />
+                    <Link to="https://www.confluera.com/">
+                        <CompanyLogo srcLight="/img/companies/confluera_light.svg" srcDark="/img/companies/confluera_dark.svg" />
                     </Link>
                     <Link class="grid-item" to="https://stripe.com">
                         <SVG src="/img/companies/stripe.svg" />
@@ -231,10 +269,21 @@ function WhoUses() {
                     <Link class="grid-item" to="https://www.adbeat.com">
                         <SVG src="/img/companies/adbeat.svg" />
                     </Link>
+                    <Link to="https://razorpay.com/">
+                        <CompanyLogo srcLight="/img/companies/razorpay_light.svg" srcDark="/img/companies/razorpay_dark.svg" />
+                    </Link>
                 </div>
             </div>
         </section>
     );
+}
+
+const CompanyLogo = ({srcLight, srcDark}) => {
+    const { isDarkTheme } = useThemeContext();
+
+    return (
+        <SVG src={isDarkTheme ? srcDark : srcLight} />
+    )
 }
 
 function Usage() {
@@ -433,6 +482,7 @@ function Home() {
                 )}
                 <Usage />
                 <WhoUses />
+                <UserFacingAnalytics />
                 <Installation />
             </main>
         </Layout>
