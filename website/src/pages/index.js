@@ -25,7 +25,30 @@ import PinotQuery from '@site/static/img/ingest-query.svg';
 import styles from "./index.module.css";
 import "./index.css";
 
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+import 'react-awesome-slider/dist/custom-animations/cube-animation.css';
+import SwiftSlider from 'react-swift-slider'
+import withAutoplay from 'react-awesome-slider/dist/autoplay'
+import ReactPlayer from "react-player/youtube";
+import styled from 'styled-components'
+import Head from '@docusaurus/Head';
+
+const companiesData = require(`../data/companies-data.js`);
+const companiesList = companiesData.getCompaniesList();
 const AnchoredH2 = Heading("h2");
+
+const WhoUsesPinotSEO = () => (
+  <Head>
+    <meta property="og:description" content="Who used Apache Pinot?" />
+    <meta property="og:description" content="Who used Pinot?" />
+    <meta property="og:description" content="Companies using Pinot?" />
+    <meta property="og:description" content="Companies using Apache Pinot?" />
+    <meta charSet="utf-8" />
+    <title>Who used Apache Pinot?</title>
+    <link rel="canonical" href="http://mysite.com/example" />
+  </Head>
+);
 
 const features = [
     {
@@ -171,30 +194,47 @@ function UserFacingAnalytics() {
     return (
         <section className="topologies">
             <div className="container">
-                <AnchoredH2 id="ingest-query">
+                <AnchoredH2 id="user-facing-analytics">
                     User-Facing Analytics
                 </AnchoredH2>
                 <p align="center">
                     <h3 className={styles.installSubTitle}>Building Latency Sensitive User Facing Analytics via Apache Pinot</h3>
                     <div>
-                        <iframe className={styles.youtubePlayer}
-                            title="Building Latency Sensitive User Facing Analytics via Apache Pinot"
-                            src="https://www.youtube.com/embed/JV0WxBwJqKE">
-                        </iframe>
+                        <ReactPlayer
+                            url={"https://www.youtube.com/embed/JV0WxBwJqKE&hd=1"}
+                            light={true}
+                            width={"720px"}
+                            height={"480px"}
+                            style={{ border: "1px solid white" }}
+                            playing={true}
+                            volume={1}
+                            pip={true}
+                            controls={true}
+                            loop={false}
+                            stopOnUnmount={true}
+                        />
                     </div>
 
                     <h3 className={styles.installSubTitle}>Using Apache Kafka and Apache Pinot for User-Facing Analytics</h3>
                     <div>
-                        <iframe className={styles.youtubePlayer}
-                            title="Using Apache Kafka and Apache Pinot for User-Facing, Real-Time Analytics"
-                            src="https://www.youtube.com/embed/L5b_OJVOJKo">
-                        </iframe>
+                        <ReactPlayer
+                            url={"https://www.youtube.com/watch?v=qL_t19QfrpY"}
+                            light={true}
+                            width={"720px"}
+                            height={"480px"}
+                            style={{ border: "1px solid white" }}
+                            playing={true}
+                            volume={1}
+                            pip={true}
+                            controls={true}
+                            loop={false}
+                            stopOnUnmount={true}
+                        />
                     </div>
                     <div className="hero--buttons">
                         <Link
                             to="https://docs.pinot.apache.org/community-1/videos"
-                            className="button button--primary button--highlight"
-                        >
+                            className="button button--primary button--highlight">
                             More Videos
                         </Link>
                     </div>
@@ -202,88 +242,6 @@ function UserFacingAnalytics() {
             </div>
         </section>
     );
-}
-
-function WhoUses() {
-    return (
-        <section className="topologies">
-            <div className="container">
-                <AnchoredH2 id="who-uses">Who Uses?</AnchoredH2>
-                <div className="sub-title">
-                    Pinot powers several big players, including LinkedIn, Uber,
-                    Microsoft, Walmart, WePay, Factual, Weibo, Slack and more
-                </div>
-
-                <div className={styles.installationPlatforms}>
-                    <Link class="grid-item" to="https://www.linkedin.com">
-                        <SVG src="/img/companies/linkedin.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.ubereats.com">
-                        <SVG src="/img/companies/uber.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://teams.microsoft.com">
-                        <SVG src="/img/companies/MicrosoftTeamPost2018.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://slack.com">
-                        <SVG src="/img/companies/slack.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.factual.com">
-                        <SVG src="/img/companies/factual.svg" />
-                    </Link>
-                    <Link to="https://www.weibo.com">
-                        <CompanyLogo srcLight="/img/companies/weibo_light.svg" srcDark="/img/companies/weibo_dark.svg" />
-                    </Link>
-                    <Link to="https://eero.com/">
-                        <CompanyLogo srcLight="/img/companies/eero_light.svg" srcDark="/img/companies/eero_dark.svg" />
-                    </Link>
-                    <Link to="https://www.confluera.com/">
-                        <CompanyLogo srcLight="/img/companies/confluera_light.svg" srcDark="/img/companies/confluera_dark.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://stripe.com">
-                        <SVG src="/img/companies/stripe.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.target.com/">
-                        <SVG src="/img/companies/target_logo.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.walmart.com/">
-                        <SVG src="/img/companies/walmart_logo.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://cloudkitchens.com/">
-                        <SVG src="/img/companies/cloudkitchens.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.guitarcenter.com/">
-                        <SVG src="/img/companies/guitarcenter_logo.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.publicissapient.com/">
-                        <SVG src="/img/companies/ps_logo.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.asurion.com/">
-                        <SVG src="/img/companies/asurion.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://go.wepay.com/">
-                        <SVG src="/img/companies/wepay_logo.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.traceable.ai">
-                        <SVG src="/img/companies/traceableai.svg" />
-                    </Link>
-                    <Link class="grid-item" to="https://www.adbeat.com">
-                        <SVG src="/img/companies/adbeat.svg" />
-                    </Link>
-                    <Link to="https://razorpay.com/">
-                        <CompanyLogo srcLight="/img/companies/razorpay_light.svg" srcDark="/img/companies/razorpay_dark.svg" />
-                    </Link>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-const CompanyLogo = ({srcLight, srcDark}) => {
-    const { isDarkTheme } = useThemeContext();
-
-    return (
-        <SVG src={isDarkTheme ? srcDark : srcLight} />
-    )
 }
 
 function Usage() {
@@ -420,6 +378,61 @@ function Installation() {
     );
 }
 
+function WhoUsesPinot() {
+    return (
+        <section className="topologies">
+            <div className="container">
+                <AnchoredH2 id="who-uses">Who Uses Apache Pinot?</AnchoredH2>
+                <div className="sub-title">
+                    Pinot powers several big players, including LinkedIn, Uber, Microsoft, Walmart, WePay, Factual, Weibo, Slack and more
+                </div>
+
+                <div className={styles.installationPlatforms}>
+                    {
+                        companiesList.map(
+                            company => (
+                                (() => {
+                                    if (company['enable_dark_logo'] == true) {
+                                        var title = `apache_pinot_user_${company.name}`
+                                        var altText = `Apache Pinot used by ${company.name}`
+                                        return <Link class="grid-item" to={company.website} alt={altText} title={title}>
+                                                    <CompanyLogo srcLight={company.logo} srcDark={company.darkLogo} title={title} description={altText} />
+                                                </Link>
+                                    } else {
+                                        var title = `apache_pinot_user_${company.name}`
+                                        var altText = `Apache Pinot used by ${company.name}`
+                                        return <Link class="grid-item" to={company.website} alt={altText} title={title}>
+                                                    <SVG src={company.logo} title={title} description={altText} />
+                                                </Link>
+                                    }
+                                })()
+                            )
+                        )
+                    }
+                </div>
+            </div>
+            <p align="center">
+            <div className="hero--buttons">
+                <Link
+                    to="/who_uses"
+                    className="button button--primary button--highlight">
+                    Read More on use cases..
+                </Link>
+            </div>
+            </p>
+
+        </section>
+    );
+}
+
+const CompanyLogo = ({srcLight, srcDark, title, description}) => {
+    const { isDarkTheme } = useThemeContext();
+
+    return (
+        <SVG src={isDarkTheme ? srcDark : srcLight} title={title} description={description} />
+    )
+}
+
 function Home() {
     const context = useDocusaurusContext();
     const { siteConfig = {} } = context;
@@ -481,12 +494,15 @@ function Home() {
                     <Features features={features} />
                 )}
                 <Usage />
-                <WhoUses />
+                <WhoUsesPinot />
                 <UserFacingAnalytics />
                 <Installation />
+
             </main>
         </Layout>
     );
 }
+
+Home.description = "Who Uses Apache Pinot?"
 
 export default Home;

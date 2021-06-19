@@ -33,7 +33,8 @@ module.exports = {
       {name: 'description', content: 'user facing analytics'},
       {name: 'description', content: 'Olap'},
       {name: 'description', content: 'Consumer-facing facing analytics'},
-      {name: 'description', content: 'Fast Analytics'}
+      {name: 'description', content: 'Fast Analytics'},
+      {name: 'description', content: 'Who uses Apache Pinot?'}
     ],
     navbar: {
       hideOnScroll: true,
@@ -44,8 +45,8 @@ module.exports = {
       items: [
         {to: 'https://docs.pinot.apache.org/', label: 'Docs', position: 'right'},
         {to: '/download', label: 'Download', position: 'right'},
-        // {to: '/blog', label: 'Blog', position: 'right'},
-        {to: 'https://docs.pinot.apache.org/community-1/blogs', label: 'Blog', position: 'right'},
+        {to: '/blog', label: 'Blog', position: 'right'},
+        // {to: 'https://docs.pinot.apache.org/community-1/blogs', label: 'Blog', position: 'right'},
         {
           href: 'https://github.com/apache/incubator-pinot',
           label: 'GitHub',
@@ -105,7 +106,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Components',
+          title: 'Integrations',
           items: [
             {
               label: 'Presto',
@@ -198,7 +199,7 @@ module.exports = {
         src: 'img/logo.svg',
         href: 'https://pinot.apache.org/',
       },
-      copyright: `Disclaimer: Apache Pinot is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.<br><br>Copyright © ${new Date().getFullYear()} The Apache Software Foundation.<br>Apache Pinot, Pinot, Apache, the Apache feather logo, and the Apache Pinot project logo are registered trademarks of The Apache Software Foundation.`,
+      copyright: `Disclaimer: Apache Pinot is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.<br><br>Copyright © ${new Date().getFullYear()} The Apache Software Foundation.<br>Apache Pinot, Pinot, Apache, the Apache feather logo, and the Apache Pinot project logo are registered trademarks of The Apache Software Foundation.<br><br>This page has references to third party software - Presto, PrestoDB, ThirdEye, that are not part of the Apache Software Foundation and are not covered under the Apache License.`,
     },
     googleAnalytics: {
       trackingID: 'UA-157446650-1',
@@ -236,7 +237,7 @@ module.exports = {
         blog: {
         path: 'blog',
         editUrl: 'https://github.com/apache/incubator-pinot-site/edit/dev/website/',
-        blogTitle: 'Blog - Apache Pinot: User-Face Analytics',
+        blogTitle: 'Blog - Apache Pinot: User-Facing Analytics',
         blogSidebarCount: 10,
         blogSidebarTitle: 'All our posts',
         /**
@@ -256,7 +257,7 @@ module.exports = {
           // remarkPlugins: [variable],
           feedOptions: {
             type: "all",
-            title: 'Apache Pinot: User-Face Analytics',
+            title: 'Apache Pinot: User-Facing Analytics',
             // copyright: customFields.copyright,
           },
           showReadingTime: true,
